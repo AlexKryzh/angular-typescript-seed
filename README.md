@@ -1,1 +1,1 @@
-# angular-typescript-seed
+Angular seed with typescript

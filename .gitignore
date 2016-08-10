@@ -1,0 +1,17 @@
+# OS X hidden files
+.DS_Store
+
+# Dependency directories
+/node_modules/
+/typings/
+
+# Dist files
+/dist/
+
+# Environment Variables
+.typingsrc
+
+#IDE configuration files
+.idea
+.vscode
+*.iml

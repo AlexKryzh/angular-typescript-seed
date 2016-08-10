@@ -1,0 +1,41 @@
+{
+  "name": "Angular-Typescript-Seed",
+  "version": "1.0.0",
+  "author": "Alex Kryzhanovskyy <alex@kryzh.com>",
+  "description": "Angular Typescript Seed.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexKryzh/angular-typescript-seed"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "boilerplate",
+    "bootstrap",
+    "sass",
+    "karma",
+    "protractor",
+    "browser-sync"
+  ],
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "angular": "1.5.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-help": "^1.6.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-typescript": "^2.13.6",
+    "gulp-util": "^3.0.7",
+    "ts-node": "^1.2.2",
+    "tslint": "^3.14.0",
+    "tslint-stylish": "^2.1.0-beta",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.2"
+  },
+  "scripts": {
+    "postinstall": "typings install"
+  }
+}
