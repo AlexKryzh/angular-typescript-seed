@@ -3,6 +3,7 @@
   "dependencies": {},
   "devDependencies": {},
   "globalDependencies": {
+    "browser-sync": "registry:dt/browser-sync#0.0.0+20160524142403",
     "chalk": "registry:dt/chalk#0.4.0+20160317120654",
     "gulp": "registry:dt/gulp#3.8.0+20160724062653",
     "gulp-help": "registry:dt/gulp-help#0.0.0+20160316155526",

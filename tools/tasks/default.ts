@@ -1,5 +1,2 @@
-import * as gulpCore from 'gulp';
-import * as gulpHelp from 'gulp-help';
-
-var gulp = gulpHelp(gulpCore);
-gulp.task('default', false, ['help']);
+var $ = global;
+$.gulp.task('default', false, ['help']);
