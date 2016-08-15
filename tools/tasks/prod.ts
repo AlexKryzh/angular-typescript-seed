@@ -1,6 +1,17 @@
+import * as sequence from 'run-sequence';
 var $ = global;
 
-$.gulp.task('prod', 'Prod', ()=> {
+$.gulp.task('prod', 'Create production distribution app', ()=> {
     $.prod = true;
-    $.plugin.util.log('test1 ', 'test2', $.plugin.util.colors.red(`prod: ${$.prod}`));
+    sequence(
+        [
+            'icons',
+            'mocks',
+            //'favicons'
+        ]
+    );
+}, {
+    options: {
+        'mocks': 'activate mocks'
+    }
 });

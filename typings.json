@@ -9,9 +9,11 @@
     "gulp-help": "registry:dt/gulp-help#0.0.0+20160316155526",
     "gulp-load-plugins": "registry:dt/gulp-load-plugins#0.0.0+20160316155526",
     "gulp-util": "registry:dt/gulp-util#0.0.0+20160316155526",
+    "lodash": "registry:dt/lodash#4.14.0+20160802150749",
     "node": "registry:dt/node#6.0.0+20160807145350",
     "orchestrator": "registry:dt/orchestrator#0.0.0+20160316155526",
     "q": "registry:dt/q#0.0.0+20160613154756",
+    "run-sequence": "registry:dt/run-sequence#0.0.0+20160316155526",
     "through2": "registry:dt/through2#2.0.0+20160317120654",
     "vinyl": "registry:dt/vinyl#1.1.0+20160316155526"
   }
