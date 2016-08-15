@@ -1,6 +1,6 @@
 var $ = global;
 
-$.gulp.task('mocks', 'Copy mock files', () =>{
+$.gulp.task('mocks', 'Copy mock files', ['mocks:images'], () =>{
     if($.mocks !== true){ return; }
     return $.gulp.src($.config.mocks.src)
         .pipe($.plugin.jsonlint())
