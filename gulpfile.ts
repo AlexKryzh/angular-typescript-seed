@@ -4,8 +4,9 @@
 import { readdirSync } from 'fs';
 import * as gulp from 'gulp';
 import * as gulpHelp from 'gulp-help';
+import * as util from 'gulp-util';
 import * as browserSync from 'browser-sync';
-import * as config from './tools/config';
+import * as configuration from './tools/config';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 
 const plugins = gulpLoadPlugins();
@@ -13,8 +14,10 @@ const plugins = gulpLoadPlugins();
 global.gulp = gulpHelp(gulp, {description: '', hideEmpty: true});
 global.plugin = plugins;
 global.prod = false;
-global.config = config;
+global.mocks = util.env.mocks;
+global.config = configuration.config;
 global.bs = browserSync.create();
+global.timestamp = Math.round(Date.now()/1000);
 
 //Register tasks from tasks folder
 const tasks:string[] = readdirSync('./tools/tasks/').filter((task) => {

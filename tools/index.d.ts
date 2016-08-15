@@ -3,7 +3,9 @@ declare module NodeJS  {
         gulp: any,
         plugin: any,
         prod: boolean,
+        mocks: boolean,
         config: object,
-        bs: any
+        bs: any,
+        timestamp: any
     }
 }

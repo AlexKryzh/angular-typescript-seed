@@ -8,6 +8,10 @@
 # Dist files
 /dist/
 
+# Source generated files
+/src/fonts/icons.woff
+/src/styles/_icons.scss
+
 # Environment Variables
 .typingsrc
 
