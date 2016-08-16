@@ -10,6 +10,8 @@ import * as configuration from './tools/config';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 
 const plugins = gulpLoadPlugins({camelize: true});
+const CacheBuster = require('gulp-cachebust');
+const del = require('del');
 
 global.gulp = gulpHelp(gulp, {description: '', hideEmpty: true});
 global.plugin = plugins;
@@ -17,6 +19,8 @@ global.prod = false;
 global.mocks = util.env.mocks;
 global.config = configuration.config;
 global.bs = browserSync.create();
+global.cachebust = new CacheBuster();
+global.del = del;
 global.timestamp = Math.round(Date.now()/1000);
 
 //Register tasks from tasks folder
