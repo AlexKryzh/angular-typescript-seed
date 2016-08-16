@@ -1,4 +1,18 @@
 export const config = {
+    app:{
+        name: 'Boilerplate'
+    },
+    favicons: {
+        src: 'src/images/favicon/favicon.svg',
+        dev: 'src/images/favicon/favicon.ico',
+        dest: 'dist/images/favicons/',
+        path: '/images/favicons/',
+        color: {
+            light: '#ffffff',
+            dark: '#000000'
+        },
+        data: 'faviconData.json'
+    },
     mocks: {
         src: 'src/resources/mocks/*.json',
         dest: 'dist/resources/mocks',

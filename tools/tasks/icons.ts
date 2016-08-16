@@ -8,7 +8,8 @@ $.gulp.task('icons', 'Create font with custom icons', () =>{
         normalize: true,
         prependUnicode: true,
         formats: ['woff'],
-        timestamp: $.timestamp
+        timestamp: $.timestamp,
+        log: function(){}
     }))
     .on('glyphs', function(glyphs:any, options:any) {
         $.gulp.src($.config.icons.template)

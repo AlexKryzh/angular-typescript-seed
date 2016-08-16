@@ -9,7 +9,7 @@ import * as browserSync from 'browser-sync';
 import * as configuration from './tools/config';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 
-const plugins = gulpLoadPlugins();
+const plugins = gulpLoadPlugins({camelize: true});
 
 global.gulp = gulpHelp(gulp, {description: '', hideEmpty: true});
 global.plugin = plugins;

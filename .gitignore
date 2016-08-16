@@ -9,6 +9,7 @@
 /dist/
 
 # Source generated files
+faviconData.json
 /src/fonts/icons.woff
 /src/styles/_icons.scss
 
