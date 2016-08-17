@@ -82,8 +82,13 @@ export const config = {
         src: 'src/styles/**/*.scss',
         dest: 'dist/styles',
         icons: '_icons.scss',
+        fonts: '_fonts.scss',
         prodSourcemap: false,
         autoprefixer: ['last 5 version', '> 0.1%', 'ie 9']
-        //sassIncludePaths: []
+    },
+    templates: {
+        index: 'src/index.html',
+        src: 'src/templates/**/*.htm*',
+        dest: 'src/scripts/'
     }
 };
