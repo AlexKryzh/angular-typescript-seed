@@ -2,6 +2,11 @@ export const config = {
     app:{
         name: 'Boilerplate'
     },
+    port: {
+        browser: 3000,
+        ui: 3001,
+        test: 3002
+    },
     dist: './dist/',
     src: './src/',
     assetExtensions: [
@@ -67,11 +72,10 @@ export const config = {
         src: ['src/images/**/*.png', 'src/images/**/*.jpg', 'src/images/**/*.gif', 'src/images/**/*.svg', '!src/images/icons/*', '!src/images/favicon/*', '!src/images/mocks/*'],
         dest: 'dist/images'
     },
-
     fonts: {
         icons: 'src/fonts/icons*',
         src: ['src/fonts/*', '!src/fonts/icons*'],
-        dest: 'dest/fonts'
+        dest: 'dist/fonts'
     },
     styles: {
         dev: 'src/styles/',

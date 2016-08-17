@@ -1,6 +1,6 @@
 var $ = global;
 
-$.gulp.task('mocks', 'Copy mock files', ['mocks:images'], () =>{
+$.gulp.task('mocks', 'Process and move mocks', ['mocks:images'], () =>{
     if($.mocks !== true){ return; }
     return $.gulp.src($.config.mocks.src)
         .pipe($.plugin.changed($.config.mocks.dest))

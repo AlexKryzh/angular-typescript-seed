@@ -8,8 +8,12 @@ $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> 
             'icons',
             'mocks',
             'favicon',
-            'images'
+            'images',
+            'fonts'
         ],
+        [
+            'watch'
+        ], 
         cb
     );
 }, {
