@@ -9,6 +9,19 @@ export const config = {
     },
     dist: './dist/',
     src: './src/',
+    config: './tools/config.ts',
+    environment: {
+        development: {
+            development: true,
+            mocks: false,
+            apiUrl: '/'
+        },
+        production: {
+            development: false,
+            mocks: false,
+            apiUrl: '/'
+        }
+    },
     assetExtensions: [
         'js',
         'json',
@@ -67,6 +80,26 @@ export const config = {
         src:  'src/images/icons/**/*.svg',
         dest: 'src/fonts'
     },
+    constants: {
+        tpl: 'tools/utils/constant.tpl.ejs',
+        name: 'constants.js',
+        dest: 'src/scripts/settings',
+        properties: {
+            'cache_buster': '',
+            'localizations': [
+                {
+                    code: 'es_es',
+                    name: 'Español'
+                },
+                {
+                    code: 'en_us',
+                    name: 'English',
+                    locale: '/resources/locale/en-us.js'
+                }
+            ],
+            'defaultLocalization': 'en_us'
+        }
+    },
     images: {
         dir: 'src/images/',
         src: ['src/images/**/*.png', 'src/images/**/*.jpg', 'src/images/**/*.gif', 'src/images/**/*.svg', '!src/images/icons/*', '!src/images/favicon/*', '!src/images/mocks/*'],
@@ -88,6 +121,7 @@ export const config = {
     },
     templates: {
         index: 'src/index.html',
+        hint: '.htmlhintrc',
         src: 'src/templates/**/*.htm*',
         dest: 'src/scripts/'
     }
