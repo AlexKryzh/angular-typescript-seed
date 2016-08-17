@@ -12,6 +12,9 @@ $.gulp.task('prod', 'Create production distribution app', ['clean'], (cb:any)=> 
             'images',
             'fonts'
         ],
+        [
+            'styles'
+        ],
         cb
     );
 }, {

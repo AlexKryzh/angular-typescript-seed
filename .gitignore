@@ -12,6 +12,7 @@
 faviconData.json
 /src/fonts/icons.woff
 /src/styles/_icons.scss
+/src/styles/_fonts.scss
 
 # Environment Variables
 .typingsrc
