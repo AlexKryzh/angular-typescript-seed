@@ -9,7 +9,9 @@ $.gulp.task('watch', 'Watch changes, relaunch tasks and reload browser', ['serve
     $.gulp.watch($.config.favicons.src,  ['favicons']);
     $.gulp.watch($.config.images.src,  ['images']);
     $.gulp.watch($.config.fonts.src,   ['fonts']);
-    $.gulp.watch($.config.fonts.icons,   ['inline:fonts']);
+    $.gulp.watch($.config.fonts.icons,   ['styles:inline:font']);
+    $.gulp.watch($.config.modules.styles,   ['styles:modules']);
+    $.gulp.watch($.config.styles.src,   ['styles']);
 
     //watch dist files change and reload browser
     $.gulp.watch([$.config.dist + '**/*']).on('change', $.bs.reload);
