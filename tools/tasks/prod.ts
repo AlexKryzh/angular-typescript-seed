@@ -9,11 +9,9 @@ $.gulp.task('prod', 'Create production distribution app', ['clean'], (cb:any)=> 
             'icons',
             'mocks',
             'favicons',
-            'images'
+            'images',
+            'fonts'
         ],
-        // [
-        //     //'manifest' //find the way to add custom data
-        // ],
         cb
     );
 }, {
