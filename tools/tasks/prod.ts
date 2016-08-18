@@ -20,6 +20,9 @@ $.gulp.task('prod', 'Create production distribution app', ['clean'], (cb:any)=> 
             'styles',
             'scripts'
         ],
+        [
+            'app'
+        ],
         cb
     );
 }, {

@@ -20,6 +20,9 @@ $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> 
             'scripts'
         ],
         [
+            'app'
+        ],
+        [
             'watch'
         ], 
         cb
