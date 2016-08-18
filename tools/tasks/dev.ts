@@ -11,7 +11,9 @@ $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> 
             'images',
             'fonts',
             'templates',
-            'constants'
+            'constants',
+            'locales',
+            'translations'
         ],
         [
             'styles',

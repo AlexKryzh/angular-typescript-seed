@@ -120,6 +120,14 @@ export const config = {
         prodSourcemap: false,
         autoprefixer: ['last 5 version', '> 0.1%', 'ie 9']
     },
+    locale: {
+        src: 'src/resources/locale/*.js',
+        dest: 'dist/resources/locale'
+    },
+    translation: {
+        src: 'src/resources/translation/*.json',
+        dest: 'dist/resources/translation'
+    },
     templates: {
         index: 'src/index.html',
         hint: '.htmlhintrc',
