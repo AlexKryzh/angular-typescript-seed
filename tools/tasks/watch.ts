@@ -15,6 +15,8 @@ $.gulp.task('watch', 'Watch changes, relaunch tasks and reload browser', ['serve
     $.gulp.watch([$.config.config, $.config.constants.tpl],   ['constants']);
     $.gulp.watch($.config.modules.templates,   ['templates:modules']);
     $.gulp.watch($.config.templates.src,   ['templates']);
+    //$.gulp.watch(???,   ['scripts']);
+    //$.gulp.watch(???,   ['scripts:modules']);
 
     //watch dist files change and reload browser
     $.gulp.watch([$.config.dist + '**/*']).on('change', $.bs.reload);

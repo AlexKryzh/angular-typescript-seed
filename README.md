@@ -10,7 +10,7 @@ gulp
 gulp dev
 
 3. Create production distribution:
-gulp dev
+gulp prod
 
 
 typings install example:

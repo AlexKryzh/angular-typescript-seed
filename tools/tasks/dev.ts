@@ -14,7 +14,8 @@ $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> 
             'constants'
         ],
         [
-            'styles'
+            'styles',
+            'scripts'
         ],
         [
             'watch'
