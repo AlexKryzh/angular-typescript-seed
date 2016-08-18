@@ -15,7 +15,8 @@ $.gulp.task('prod', 'Create production distribution app', ['clean'], (cb:any)=> 
             'constants'
         ],
         [
-            'styles'
+            'styles',
+            'scripts'
         ],
         cb
     );

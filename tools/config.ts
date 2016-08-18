@@ -60,6 +60,7 @@ export const config = {
     scripts: {
         dev: 'src/scripts/',
         index: 'app.js',
+        sourcemap: false,
         src: 'src/scripts/**/*.js',
         dest: 'dist/scripts',
         files: '**/*.js',
