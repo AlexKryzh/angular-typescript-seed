@@ -25,12 +25,12 @@ namespace Bundler{
             this.path = path;
             this.sourcemap = !$.prod || $.config.scripts.sourcemap;
             this.bundler = browserify({
-                entries: [$.config.scripts.dev + this.path],
+                //entries: [$.config.scripts.dev + this.path],
                 debug: this.sourcemap,
                 cache: {},
                 packageCache: {},
                 fullPaths: !$.prod
-            });
+            }).add($.config.scripts.dev + this.path);
             this.transforms = [
                 //{ 'name':babelify, 'options': {}},
                 //{ 'name':tsify, 'options': {noImplicitAny: true}},
