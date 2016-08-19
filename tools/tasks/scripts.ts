@@ -8,7 +8,7 @@ const buffer = require('vinyl-buffer');
 
 namespace Bundler{
     interface BundleValidator {
-        path:string,
+        path: string,
         sourcemap: boolean,
         bundler: any,
         transforms: any[],
@@ -21,6 +21,7 @@ namespace Bundler{
         bundler: any;
         transforms: any[];
         constructor (path: string){
+            let that = this;
             this.path = path;
             this.sourcemap = !$.prod || $.config.scripts.sourcemap;
             this.bundler = browserify({
@@ -32,21 +33,24 @@ namespace Bundler{
             });
             this.transforms = [
                 //{ 'name':babelify, 'options': {}},
-                //{ 'name':tsify, 'options': { noImplicitAny: true }},
-                { 'name':ngAnnotate, 'options': {}},
-                { 'name':'brfs', 'options': {}},
-                { 'name':'bulkify', 'options': {}}
+                //{ 'name':tsify, 'options': {noImplicitAny: true}},
+                //{ 'name':ngAnnotate, 'options': {}},
+                //{ 'name':'brfs', 'options': {}},
+                //{ 'name':'bulkify', 'options': {}}
             ];
             if (!$.prod) {
                 this.bundler = watchify(this.bundler);
                 this.bundler.on('update', function() {
-                    this.build();
-                    $.plugin.util.log('Rebundle...');
+                    that.build();
+                    $.plugin.util.log($.plugin.util.colors.green(`Rebundle ${that.path}`));
                 });
             }
+            this.transforms.forEach(function(transform) {
+                that.bundler.transform(transform.name, transform.options);
+            });
         }
         build(){
-            const stream = this.bundler.bundle();
+            const stream = this.bundler.plugin(tsify, {}).bundle();
             const sourceMapLocation = $.prod ? './' : '';
 
             return stream.on('error', function (err:any) {
@@ -70,7 +74,7 @@ namespace Bundler{
 
 //$.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
 $.gulp.task('scripts', 'Process scripts files',() =>{
-    return new Bundler.Bundle('app.js').build();
+    return new Bundler.Bundle('app.ts').build();
 });
 
 $.gulp.task('scripts:modules', false, $.plugin.folders($.config.modules.src, (module:any) =>{

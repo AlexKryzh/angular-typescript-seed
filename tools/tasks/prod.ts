@@ -27,6 +27,6 @@ $.gulp.task('prod', 'Create production distribution app', ['clean'], (cb:any)=> 
     );
 }, {
     options: {
-        'mocks': 'activate mocks'
+        'mocks': 'gulp prod --mocks //activate mocks'
     }
 });
