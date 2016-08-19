@@ -5,7 +5,7 @@ declare module NodeJS  {
         cachebust: any,
         prod: boolean,
         mocks: boolean,
-        config: object,
+        config: any,
         bs: any,
         del: any,
         timestamp: any

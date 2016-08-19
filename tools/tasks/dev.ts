@@ -29,6 +29,6 @@ $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> 
     );
 }, {
     options: {
-        'mocks': 'activate mocks'
+        'mocks': 'gulp dev --mocks //activate mocks'
     }
 });
