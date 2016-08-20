@@ -1,6 +1,5 @@
 var $ = global;
 const browserify = require('browserify');
-const watchify = require('watchify');
 const tsify = require('tsify');
 const ngAnnotate = require('browserify-ngannotate');
 const source = require('vinyl-source-stream');
@@ -16,11 +15,10 @@ namespace Bundler{
     }
 
     export class Bundle implements BundleValidator {
-        path: string;
         sourcemap: boolean;
         bundler: any;
         transforms: any[];
-        constructor (path: string){
+        constructor (public path: string){
             let that = this;
             this.path = path;
             this.sourcemap = !$.prod || $.config.scripts.sourcemap;
@@ -38,13 +36,6 @@ namespace Bundler{
                 //{ 'name':'brfs', 'options': {}},
                 //{ 'name':'bulkify', 'options': {}}
             ];
-            if (!$.prod) {
-                this.bundler = watchify(this.bundler);
-                this.bundler.on('update', function() {
-                    that.build();
-                    $.plugin.util.log($.plugin.util.colors.green(`Rebundle ${that.path}`));
-                });
-            }
             this.transforms.forEach(function(transform) {
                 that.bundler.transform(transform.name, transform.options);
             });
@@ -54,7 +45,7 @@ namespace Bundler{
             const sourceMapLocation = $.prod ? './' : '';
 
             return stream.on('error', function (err:any) {
-                    $.plugin.util.log(err.toString(), 'test');
+                    $.plugin.util.log(err.toString());
                     this.emit('end');
                 })
                 .pipe(source(this.path))
@@ -66,6 +57,9 @@ namespace Bundler{
                 .pipe($.plugin.if(this.sourcemap, $.plugin.sourcemaps.write(sourceMapLocation)) )
                 .pipe($.plugin.rename({dirname: ''}) )
                 .pipe($.plugin.if($.prod, $.cachebust.resources()))
+                .pipe($.plugin.rename(function (path:any) {
+                    path.extname = '.js'
+                }))
                 .pipe($.gulp.dest($.config.scripts.dest));
         }
     }
@@ -73,10 +67,10 @@ namespace Bundler{
 }
 
 //$.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
-$.gulp.task('scripts', 'Process scripts files',() =>{
-    return new Bundler.Bundle('app.ts').build();
+$.gulp.task('scripts', 'Process scripts files', () =>{
+    return new Bundler.Bundle($.config.modules.main).build();
 });
 
 $.gulp.task('scripts:modules', false, $.plugin.folders($.config.modules.src, (module:any) =>{
-    return new Bundler.Bundle(module + '.js').build();
+    return new Bundler.Bundle(module + '.ts').build();
  }));

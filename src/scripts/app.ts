@@ -1,26 +1,13 @@
+/// <reference path="../../typings/index.d.ts"/>
 /// <reference path="../index.d.ts"/>
-// module App {
 
-//     function routes($routeProvider: ng.route.IRouteProvider){
-//     }
 
-//     routes.$inject = ['$routeProvider']
+import * as angular from 'angular';
+import {Run} from './settings/run';
+import {Config} from './settings/config';
 
-//     angular
-//         .module('App')
-//         .config(routes);
-// }
-
-namespace App {
-    angular.module('App');
-}
-
-// import angular from 'angular';
-
-// // angular modules
 // import constants     from './settings/constants';
 // import onConfig      from './settings/config';
-// import onRun          from './settings/run';
 // import 'angular-sanitize';
 // import 'angular-cookies';
 // import 'angular-ui-router';
@@ -40,6 +27,9 @@ namespace App {
 // if (constants.mocks === true) {
 //     require ('./mocks');
 // }
+
+const requires:string[] = [];
+
 
 // // create and bootstrap application
 // const requires = [
@@ -61,15 +51,17 @@ namespace App {
 //     requires.push('app.mocks');
 // }
 
-// // mount on window for testing
-// window.app = angular.module('app', requires);
+namespace App {
+    let OnRun:any = new Run();
+    let OnConfig:any = new Config();
 
-// angular.module('app').constant('AppSettings', constants);
+    // mount on window for testing
+    window.app = angular.module('app', requires);
+    // angular.module('app').constant('AppSettings', constants);
+    angular.module('app').config(OnConfig);
+    angular.module('app').run(OnRun);
 
-// angular.module('app').config(onConfig);
-
-// angular.module('app').run(onRun);
-
-// angular.bootstrap(document, ['app'], {
-//     strictDi: true
-// });
+    // angular.bootstrap(document, ['app'], {
+    //     strictDi: true
+    // });
+}
