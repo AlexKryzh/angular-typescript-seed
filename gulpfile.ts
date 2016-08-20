@@ -1,4 +1,4 @@
-/// <reference path="typings/index.d.ts"/>
+/// <reference path="tools/typings/index.d.ts"/>
 /// <reference path="tools/index.d.ts"/>
 
 import { readdirSync } from 'fs';

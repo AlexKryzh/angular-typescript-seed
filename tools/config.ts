@@ -61,7 +61,7 @@ export const config = {
         dev: 'src/scripts/',
         index: 'app.js',
         sourcemap: false,
-        src: 'src/scripts/**/*.js',
+        src: 'src/scripts/**/*.ts',
         dest: 'dist/scripts',
         files: '**/*.js',
         jshint: ['src/scripts/**/*.js', 'src/modules/**/*.js', '!src/modules/**/*_tpl.js', '!src/modules/**/*_spec.js', '!src/modules/**/*_css.js', '!src/scripts/**/*_tpl.js']
@@ -70,7 +70,8 @@ export const config = {
         src: 'src/modules/',
         styles: 'src/modules/**/*.scss',
         templates: 'src/modules/**/*.htm*',
-        scripts: 'src/modules/**/*.js',
+        main: 'app.ts',
+        scripts: 'src/modules/**/*.ts',
         tests: '!src/modules/**/*_spec.js'
     },
     icons: {

@@ -1,3 +1,9 @@
+export class Config {
+    constructor(){
+        console.log('config');
+    }
+}
+
 // function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $logProvider, $translateProvider, tmhDynamicLocaleProvider, AppSettings) {
 //     'ngInject';
 

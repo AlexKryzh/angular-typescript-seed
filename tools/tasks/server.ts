@@ -22,8 +22,8 @@ $.gulp.task('server', 'Launch server for development', () =>{
         ui: {
             port: $.config.port.ui
         },
-        //open: 'ui',
-        open: false,
+        open: 'ui',
+        //open: false,
         ghostMode: {
             links: false
         }

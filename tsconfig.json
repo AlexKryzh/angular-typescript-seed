@@ -16,11 +16,28 @@
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "typings/index.d.ts",
-    "typings/modules"
+  "files": [
+    "./gulpfile.ts",
+    "./tools/config.ts",
+    ".tools/tasks/app.ts",
+    ".tools/tasks/clean.ts",
+    ".tools/tasks/constants.ts",
+    ".tools/tasks/default.ts",
+    ".tools/tasks/dev.ts",
+    ".tools/tasks/favicon.ts",
+    ".tools/tasks/favicons.ts",
+    ".tools/tasks/fonts.ts",
+    ".tools/tasks/icons.ts",
+    ".tools/tasks/images.ts",
+    ".tools/tasks/locales.ts",
+    ".tools/tasks/mocks.ts",
+    ".tools/tasks/prod.ts",
+    ".tools/tasks/scripts.ts",
+    ".tools/tasks/server.ts",
+    ".tools/tasks/styles.ts",
+    ".tools/tasks/templates.ts",
+    ".tools/tasks/translations.ts",
+    ".tools/tasks/watch.ts"
   ],
   "compileOnSave": false
 }

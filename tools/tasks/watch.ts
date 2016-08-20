@@ -15,8 +15,7 @@ $.gulp.task('watch', 'Watch changes, relaunch tasks and reload browser', ['serve
     $.gulp.watch([$.config.config, $.config.constants.tpl],   ['constants']);
     $.gulp.watch($.config.modules.templates,   ['templates:modules']);
     $.gulp.watch($.config.templates.src,   ['templates']);
-    //$.gulp.watch(???,   ['scripts']);
-    //$.gulp.watch(???,   ['scripts:modules']);
+    $.gulp.watch([$.config.modules.src, $.config.scripts.src],   ['scripts']);
     $.gulp.watch($.config.locale.src, ['locales']);
     $.gulp.watch($.config.translation.src, ['translations']);
     $.gulp.watch([$.config.dist + '**/*', $.config.templates.index], ['app']);
