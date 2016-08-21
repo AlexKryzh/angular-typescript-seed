@@ -4,10 +4,6 @@ export class Run {
     }
 }
 
-// export default function():any{
-//     console.log('run');
-// }
-
 // function OnRun($rootScope, $translate, $log) {
 //     'ngInject';
 
