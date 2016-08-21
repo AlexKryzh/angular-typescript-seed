@@ -21,7 +21,9 @@
   "license": "UNLICENSED",
   "dependencies": {
     "angular": "^1.5.8",
-    "bootstrap-sass": "^3.3.7"
+    "angular-ui-router": "^0.3.1",
+    "bootstrap-sass": "^3.3.7",
+    "oclazyload": "^1.0.9"
   },
   "devDependencies": {
     "browser-sync": "^2.14.0",

@@ -1,59 +1,61 @@
 export class Config {
-    constructor(){
-        console.log('config');
+    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
+    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider){
+
+        //Routes
+        $locationProvider.html5Mode({enabled: true, requireBase: false});
+
+        $stateProvider
+        .state('home', {
+            url: '/',
+            //title: 'page.home.title',
+            templateUrl: 'home.html',
+            resolve: {
+                // list_deps: function($ocLazyLoad:any){
+                //     return $ocLazyLoad.load({
+                //         files: ['/scripts/home.js']
+                //     });
+                // }
+            }
+        })
+
+        .state('items', {
+            url: '/items?page',
+            params: { page: '1', squash: true },
+            //title: 'page.items.title',
+            controller: 'ItemsCtrl as items',
+            templateUrl: 'items.html',
+            resolve: {
+                // list_deps: function($ocLazyLoad:any){
+                //     return $ocLazyLoad.load({
+                //         files: ['/scripts/items.js']
+                //     });
+                // }
+            }
+        })
+
+        .state('styleguide', {
+            url: '/styleguide',
+            //title: 'page.styleguide.title',
+            controller: 'styleguideCtrl as styleguide',
+            templateUrl: 'styleguide.html',
+            resolve: {
+                // list_deps: function($ocLazyLoad:any){
+                //     return $ocLazyLoad.load({
+                //         files: ['/scripts/styleguide.js']
+                //     });
+                // }
+            }
+        });
+
+        $urlRouterProvider.otherwise('/');
     }
 }
 
-// function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $logProvider, $translateProvider, tmhDynamicLocaleProvider, AppSettings) {
+// function OnConfig($logProvider, $translateProvider, tmhDynamicLocaleProvider, AppSettings) {
 //     'ngInject';
 
-//     //Routes
-//     $locationProvider.html5Mode({enabled: true, requireBase: false});
 
-//     $stateProvider
-//     .state('home', {
-//         url: '/',
-//         title: 'page.home.title',
-//         templateUrl: 'home.html',
-//         resolve: {
-//             list_deps: function($ocLazyLoad){
-//                 return $ocLazyLoad.load({
-//                     files: ['/scripts/home.js']
-//                 });
-//             }
-//         }
-//     })
-
-//     .state('items', {
-//         url: '/items?page',
-//         params: { page: '1', squash: true },
-//         title: 'page.items.title',
-//         controller: 'ItemsCtrl as items',
-//         templateUrl: 'items.html',
-//         resolve: {
-//             list_deps: function($ocLazyLoad){
-//                 return $ocLazyLoad.load({
-//                     files: ['/scripts/items.js']
-//                 });
-//             }
-//         }
-//     })
-
-//     .state('styleguide', {
-//         url: '/styleguide',
-//         title: 'page.styleguide.title',
-//         controller: 'styleguideCtrl as styleguide',
-//         templateUrl: 'styleguide.html',
-//         resolve: {
-//             list_deps: function($ocLazyLoad){
-//                 return $ocLazyLoad.load({
-//                     files: ['/scripts/styleguide.js']
-//                 });
-//             }
-//         }
-//     });
-
-//     $urlRouterProvider.otherwise('/');
 
 //     //debug logs
 //     var cache_buster = '';
@@ -82,5 +84,3 @@ export class Config {
 //     $translateProvider.useMissingTranslationHandlerLog();
 
 // }
-
-// export default OnConfig;
