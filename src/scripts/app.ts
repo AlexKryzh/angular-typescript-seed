@@ -5,10 +5,11 @@ import * as angular from 'angular';
 import 'angular-ui-router';
 import 'oclazyload';
 
+import {Constants} from './settings/constants';
 import {Run} from './settings/run';
 import {Config} from './settings/config';
 
-// import constants     from './settings/constants';
+
 // import 'angular-sanitize';
 // import 'angular-cookies';
 // import 'angular-dynamic-locale';
@@ -28,7 +29,7 @@ import {Config} from './settings/config';
 // }
 
 const requires:string[] = [
-    'ui.router'
+    'ui.router',
     'oc.lazyLoad'
 ];
 
@@ -54,7 +55,7 @@ const requires:string[] = [
 namespace App {
     // mount on window for testing
     window.app = angular.module('app', requires);
-    // angular.module('app').constant('AppSettings', constants);
+    angular.module('app').constant('AppSettings', Constants);
     angular.module('app').config(Config);
     angular.module('app').run(Run);
 

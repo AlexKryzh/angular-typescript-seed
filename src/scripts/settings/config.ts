@@ -1,6 +1,9 @@
 export class Config {
-    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
-    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider){
+    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', 'AppSettings'];
+    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, AppSettings: any){
+        let settings = new AppSettings();
+
+        console.log(settings);
 
         //Routes
         $locationProvider.html5Mode({enabled: true, requireBase: false});
@@ -8,7 +11,7 @@ export class Config {
         $stateProvider
         .state('home', {
             url: '/',
-            //title: 'page.home.title',
+            title: 'page.home.title',
             templateUrl: 'home.html',
             resolve: {
                 // list_deps: function($ocLazyLoad:any){
@@ -22,7 +25,7 @@ export class Config {
         .state('items', {
             url: '/items?page',
             params: { page: '1', squash: true },
-            //title: 'page.items.title',
+            title: 'page.items.title',
             controller: 'ItemsCtrl as items',
             templateUrl: 'items.html',
             resolve: {
@@ -36,7 +39,7 @@ export class Config {
 
         .state('styleguide', {
             url: '/styleguide',
-            //title: 'page.styleguide.title',
+            title: 'page.styleguide.title',
             controller: 'styleguideCtrl as styleguide',
             templateUrl: 'styleguide.html',
             resolve: {
@@ -54,8 +57,6 @@ export class Config {
 
 // function OnConfig($logProvider, $translateProvider, tmhDynamicLocaleProvider, AppSettings) {
 //     'ngInject';
-
-
 
 //     //debug logs
 //     var cache_buster = '';

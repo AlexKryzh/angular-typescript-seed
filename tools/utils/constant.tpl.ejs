@@ -1,7 +1,10 @@
-const AppSettings = {
-<% constants.forEach(function(constant) { %>
-    <%- constant.name %>: <%= constant.value %>,
-<% }) %>
-};
-
-export default AppSettings;
+export class Constants{
+    <% constants.forEach(function(constant) { %>
+        <%- constant.name %>: any;
+    <% }) %>
+    constructor(){
+    <% constants.forEach(function(constant) { %>
+        this.<%- constant.name %>= <%= constant.value %>;
+    <% }) %>
+    }
+}

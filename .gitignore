@@ -17,7 +17,7 @@ faviconData.json
 src/scripts/*_tpl.js
 src/modules/**/*_tpl.js
 src/modules/**/*_css.js
-src/scripts/settings/constants.js
+src/scripts/settings/constants.ts
 
 # Environment Variables
 .typingsrc

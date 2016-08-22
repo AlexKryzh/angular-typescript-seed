@@ -84,7 +84,7 @@ export const config = {
     },
     constants: {
         tpl: 'tools/utils/constant.tpl.ejs',
-        name: 'constants.js',
+        name: 'constants.ts',
         dest: 'src/scripts/settings',
         properties: {
             'cache_buster': '',
