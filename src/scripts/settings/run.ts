@@ -1,4 +1,5 @@
 export class Run {
+    static $inject = ['$rootScope', '$log'];
     constructor(){
         console.log('run');
     }

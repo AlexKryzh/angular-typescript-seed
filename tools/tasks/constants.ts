@@ -19,7 +19,8 @@ $.gulp.task('constants', 'Create constants module',() =>{
     return $.plugin.ngConstant({
         constants: constants,
         templatePath: $.config.constants.tpl,
-        stream: true
+        stream: true,
+        wrap: false
     })
     .pipe($.plugin.if($.mocks, $.plugin.replace('mocks: false', 'mocks: true')))
     .pipe($.plugin.if(!$.mocks, $.plugin.replace('mocks: true', 'mocks: false')))
