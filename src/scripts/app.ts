@@ -55,7 +55,9 @@ const requires:string[] = [
 namespace App {
     // mount on window for testing
     window.app = angular.module('app', requires);
-    angular.module('app').constant('AppSettings', Constants);
+
+    let AppSettings = new Constants();
+    angular.module('app').constant('AppSettings', AppSettings);
     angular.module('app').config(Config);
     angular.module('app').run(Run);
 

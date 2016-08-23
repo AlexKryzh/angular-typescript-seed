@@ -1,9 +1,15 @@
 export class Config {
-    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', 'AppSettings'];
-    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, AppSettings: any){
-        let settings = new AppSettings();
+    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', '$logProvider', 'AppSettings'];
+    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, $logProvider: ng.ILogProvider, AppSettings: any){
 
-        console.log(settings);
+        //debug logs
+        var cache_buster = '';
+        if(AppSettings.development){
+            $logProvider.debugEnabled(true);
+        }else{
+            $logProvider.debugEnabled(false);
+            cache_buster = '.' + AppSettings.cache_buster;
+        }
 
         //Routes
         $locationProvider.html5Mode({enabled: true, requireBase: false});
@@ -55,17 +61,7 @@ export class Config {
     }
 }
 
-// function OnConfig($logProvider, $translateProvider, tmhDynamicLocaleProvider, AppSettings) {
-//     'ngInject';
-
-//     //debug logs
-//     var cache_buster = '';
-//     if(AppSettings.development){
-//         $logProvider.debugEnabled(true);
-//     }else{
-//         $logProvider.debugEnabled(false);
-//         cache_buster = '.' + AppSettings.cache_buster;
-//     }
+// function OnConfig($logProvider, $translateProvider, tmhDynamicLocaleProvider) {
 
 //     //locale
 //     tmhDynamicLocaleProvider.localeLocationPattern('resources/locale/{{locale}}' + cache_buster + '.js');
