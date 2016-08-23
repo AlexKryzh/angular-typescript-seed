@@ -28,11 +28,6 @@ import {Config} from './settings/config';
 //     require ('./mocks');
 // }
 
-const requires:string[] = [
-    'ui.router',
-    'oc.lazyLoad'
-];
-
 
 // // create and bootstrap application
 // const requires = [
@@ -53,6 +48,11 @@ const requires:string[] = [
 // }
 
 namespace App {
+
+    const requires:string[] = [
+        'ui.router',
+        'oc.lazyLoad'
+    ];
     // mount on window for testing
     window.app = angular.module('app', requires);
 

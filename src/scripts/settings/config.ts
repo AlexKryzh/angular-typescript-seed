@@ -11,7 +11,9 @@ export class Config {
             cache_buster = '.' + AppSettings.cache_buster;
         }
 
-        //Routes
+        //console.log($ocLazyLoad);
+
+        //Routes Configuration
         $locationProvider.html5Mode({enabled: true, requireBase: false});
 
         $stateProvider
@@ -20,11 +22,11 @@ export class Config {
             title: 'page.home.title',
             templateUrl: 'home.html',
             resolve: {
-                // list_deps: function($ocLazyLoad:any){
-                //     return $ocLazyLoad.load({
-                //         files: ['/scripts/home.js']
-                //     });
-                // }
+                list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){
+                    return $ocLazyLoad.load({
+                        files: ['/scripts/home.js']
+                    });
+                }]
             }
         })
 
@@ -35,11 +37,11 @@ export class Config {
             controller: 'ItemsCtrl as items',
             templateUrl: 'items.html',
             resolve: {
-                // list_deps: function($ocLazyLoad:any){
-                //     return $ocLazyLoad.load({
-                //         files: ['/scripts/items.js']
-                //     });
-                // }
+                list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){
+                    return $ocLazyLoad.load({
+                        files: ['/scripts/items.js']
+                    });
+                }]
             }
         })
 
@@ -49,11 +51,11 @@ export class Config {
             controller: 'styleguideCtrl as styleguide',
             templateUrl: 'styleguide.html',
             resolve: {
-                // list_deps: function($ocLazyLoad:any){
-                //     return $ocLazyLoad.load({
-                //         files: ['/scripts/styleguide.js']
-                //     });
-                // }
+                list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){
+                    return $ocLazyLoad.load({
+                        files: ['/scripts/styleguide.js']
+                    });
+                }]
             }
         });
 
@@ -61,7 +63,7 @@ export class Config {
     }
 }
 
-// function OnConfig($logProvider, $translateProvider, tmhDynamicLocaleProvider) {
+// function OnConfig($translateProvider, tmhDynamicLocaleProvider) {
 
 //     //locale
 //     tmhDynamicLocaleProvider.localeLocationPattern('resources/locale/{{locale}}' + cache_buster + '.js');
