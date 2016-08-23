@@ -1,11 +1,17 @@
 export class Config {
-    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', 'AppSettings'];
-    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, AppSettings: any){
-        let settings = new AppSettings();
+    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', '$logProvider', '$translateProvider', 'tmhDynamicLocaleProvider', 'AppSettings'];
+    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, $logProvider: ng.ILogProvider, $translateProvider: ng.translate.ITranslateProvider, tmhDynamicLocaleProvider: ng.dynamicLocale.tmhDynamicLocaleProvider, AppSettings: any){
 
-        console.log(settings);
+        //debug logs
+        var cache_buster = '';
+        if(AppSettings.development){
+            $logProvider.debugEnabled(true);
+        }else{
+            $logProvider.debugEnabled(false);
+            cache_buster = '.' + AppSettings.cache_buster;
+        }
 
-        //Routes
+        //Routes Configuration
         $locationProvider.html5Mode({enabled: true, requireBase: false});
 
         $stateProvider
@@ -14,11 +20,11 @@ export class Config {
             title: 'page.home.title',
             templateUrl: 'home.html',
             resolve: {
-                // list_deps: function($ocLazyLoad:any){
-                //     return $ocLazyLoad.load({
-                //         files: ['/scripts/home.js']
-                //     });
-                // }
+                list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){
+                    return $ocLazyLoad.load({
+                        files: ['/scripts/home.js']
+                    });
+                }]
             }
         })
 
@@ -29,11 +35,11 @@ export class Config {
             controller: 'ItemsCtrl as items',
             templateUrl: 'items.html',
             resolve: {
-                // list_deps: function($ocLazyLoad:any){
-                //     return $ocLazyLoad.load({
-                //         files: ['/scripts/items.js']
-                //     });
-                // }
+                list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){
+                    return $ocLazyLoad.load({
+                        files: ['/scripts/items.js']
+                    });
+                }]
             }
         })
 
@@ -43,45 +49,31 @@ export class Config {
             controller: 'styleguideCtrl as styleguide',
             templateUrl: 'styleguide.html',
             resolve: {
-                // list_deps: function($ocLazyLoad:any){
-                //     return $ocLazyLoad.load({
-                //         files: ['/scripts/styleguide.js']
-                //     });
-                // }
+                list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){
+                    return $ocLazyLoad.load({
+                        files: ['/scripts/styleguide.js']
+                    });
+                }]
             }
         });
 
         $urlRouterProvider.otherwise('/');
+
+        //locale
+        tmhDynamicLocaleProvider.localeLocationPattern('resources/locale/{{locale}}' + cache_buster + '.js');
+
+        //translations
+        //'sanitize' strategy has issues with utf-8 encoding
+        $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
+
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'resources/translation/',// path to translations files
+            suffix: cache_buster + '.json'// suffix, currently- extension of the translations
+        });
+
+        $translateProvider.preferredLanguage(AppSettings.defaultLocalization); // is applied on first load
+        $translateProvider.useLocalStorage(); // saves selected language to localStorage
+
+        $translateProvider.useMissingTranslationHandlerLog();
     }
 }
-
-// function OnConfig($logProvider, $translateProvider, tmhDynamicLocaleProvider, AppSettings) {
-//     'ngInject';
-
-//     //debug logs
-//     var cache_buster = '';
-//     if(AppSettings.development){
-//         $logProvider.debugEnabled(true);
-//     }else{
-//         $logProvider.debugEnabled(false);
-//         cache_buster = '.' + AppSettings.cache_buster;
-//     }
-
-//     //locale
-//     tmhDynamicLocaleProvider.localeLocationPattern('resources/locale/{{locale}}' + cache_buster + '.js');
-
-//     //translations
-//     //'sanitize' strategy has issues with utf-8 encoding
-//     $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
-
-//     $translateProvider.useStaticFilesLoader({
-//         prefix: 'resources/translation/',// path to translations files
-//         suffix: cache_buster + '.json'// suffix, currently- extension of the translations
-//     });
-
-//     $translateProvider.preferredLanguage(AppSettings.defaultLocalization); // is applied on first load
-//     $translateProvider.useLocalStorage(); // saves selected language to localStorage
-
-//     $translateProvider.useMissingTranslationHandlerLog();
-
-// }
