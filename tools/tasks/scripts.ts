@@ -66,8 +66,7 @@ namespace Bundler{
 
 }
 
-//$.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
-$.gulp.task('scripts', 'Process scripts files', () =>{
+$.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
     return new Bundler.Bundle($.config.modules.main).build();
 });
 
