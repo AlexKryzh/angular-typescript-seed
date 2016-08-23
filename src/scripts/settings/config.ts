@@ -1,6 +1,6 @@
 export class Config {
-    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', '$logProvider', 'AppSettings'];
-    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, $logProvider: ng.ILogProvider, AppSettings: any){
+    static $inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider', '$logProvider', '$translateProvider', 'tmhDynamicLocaleProvider', 'AppSettings'];
+    constructor($urlRouterProvider: ng.ui.IUrlRouterProvider, $stateProvider: ng.ui.IStateProvider, $locationProvider: ng.ILocationProvider, $logProvider: ng.ILogProvider, $translateProvider: ng.translate.ITranslateProvider, tmhDynamicLocaleProvider: ng.dynamicLocale.tmhDynamicLocaleProvider, AppSettings: any){
 
         //debug logs
         var cache_buster = '';
@@ -10,8 +10,6 @@ export class Config {
             $logProvider.debugEnabled(false);
             cache_buster = '.' + AppSettings.cache_buster;
         }
-
-        //console.log($ocLazyLoad);
 
         //Routes Configuration
         $locationProvider.html5Mode({enabled: true, requireBase: false});
@@ -60,26 +58,22 @@ export class Config {
         });
 
         $urlRouterProvider.otherwise('/');
+
+        //locale
+        tmhDynamicLocaleProvider.localeLocationPattern('resources/locale/{{locale}}' + cache_buster + '.js');
+
+        //translations
+        //'sanitize' strategy has issues with utf-8 encoding
+        $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
+
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'resources/translation/',// path to translations files
+            suffix: cache_buster + '.json'// suffix, currently- extension of the translations
+        });
+
+        $translateProvider.preferredLanguage(AppSettings.defaultLocalization); // is applied on first load
+        $translateProvider.useLocalStorage(); // saves selected language to localStorage
+
+        $translateProvider.useMissingTranslationHandlerLog();
     }
 }
-
-// function OnConfig($translateProvider, tmhDynamicLocaleProvider) {
-
-//     //locale
-//     tmhDynamicLocaleProvider.localeLocationPattern('resources/locale/{{locale}}' + cache_buster + '.js');
-
-//     //translations
-//     //'sanitize' strategy has issues with utf-8 encoding
-//     $translateProvider.useSanitizeValueStrategy('sanitizeParameters');
-
-//     $translateProvider.useStaticFilesLoader({
-//         prefix: 'resources/translation/',// path to translations files
-//         suffix: cache_buster + '.json'// suffix, currently- extension of the translations
-//     });
-
-//     $translateProvider.preferredLanguage(AppSettings.defaultLocalization); // is applied on first load
-//     $translateProvider.useLocalStorage(); // saves selected language to localStorage
-
-//     $translateProvider.useMissingTranslationHandlerLog();
-
-// }

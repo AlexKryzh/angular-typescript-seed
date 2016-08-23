@@ -21,6 +21,14 @@
   "license": "UNLICENSED",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-sanitize": "^1.5.8",
+    "angular-translate": "^2.11.1",
+    "angular-translate-handler-log": "^2.11.1",
+    "angular-translate-loader-static-files": "^2.11.1",
+    "angular-translate-storage-cookie": "^2.11.1",
+    "angular-translate-storage-local": "^2.11.1",
     "angular-ui-router": "^0.3.1",
     "bootstrap-sass": "^3.3.7",
     "oclazyload": "^1.0.9"
