@@ -31,10 +31,8 @@ namespace Bundler{
             }).add($.config.scripts.dev + this.path);
             this.transforms = [
                 //{ 'name':babelify, 'options': {}},
-                //{ 'name':tsify, 'options': {noImplicitAny: true}},
-                //{ 'name':ngAnnotate, 'options': {}},
-                //{ 'name':'brfs', 'options': {}},
-                //{ 'name':'bulkify', 'options': {}}
+                // { 'name':'brfs', 'options': {}},
+                // { 'name':'bulkify', 'options': {}}
             ];
             this.transforms.forEach(function(transform) {
                 that.bundler.transform(transform.name, transform.options);

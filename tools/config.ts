@@ -62,6 +62,7 @@ export const config = {
         index: 'app.js',
         sourcemap: false,
         src: 'src/scripts/**/*.ts',
+        modules: ['dist/scripts/**/*.js', '!dist/scripts/app.js'],
         dest: 'dist/scripts',
         files: '**/*.js',
         jshint: ['src/scripts/**/*.js', 'src/modules/**/*.js', '!src/modules/**/*_tpl.js', '!src/modules/**/*_spec.js', '!src/modules/**/*_css.js', '!src/scripts/**/*_tpl.js']
@@ -72,7 +73,8 @@ export const config = {
         templates: 'src/modules/**/*.htm*',
         main: 'app.ts',
         scripts: 'src/modules/**/*.ts',
-        tests: '!src/modules/**/*_spec.js'
+        tests: '!src/modules/**/*_spec.js',
+        watch: 'src/modules/**/*.js'
     },
     icons: {
         fontname: 'icons',

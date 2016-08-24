@@ -23,6 +23,7 @@ $.gulp.task('templates:modules', false, $.plugin.folders($.config.modules.src, (
             standalone: true,
             filename: module + '_tpl.js',
             module: module + '.templates',
+            //transformUrl: function (url:string) { return url.replace(/^.*[\\\/]/, ''); },
             moduleSystem: 'Browserify'
         }))
         .pipe($.gulp.dest($.config.modules.src + module));

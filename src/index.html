@@ -9,7 +9,20 @@
         <link rel="shortcut icon" href="/images/favicons/favicon.ico">
         <link rel="stylesheet" href="styles/app.css">
 </head>
-    <body>
+    <body ng-attr-id="{{'page-' + page.state.name}}" ng-cloak="" ng-class="{'hide-overflow' : hidePageScroll}">
+        <app-loading ng-hide="hideLoading"></app-loading>
+        <header>
+            <div ng-include="'partials/header.html'"></div>
+        </header>
+        <main id="content" role="main">
+            <div class="container" ui-view=""></div>
+        </main>
+        <footer>
+            <div class="container">
+                <div ng-include="'partials/footer.html'"></div>
+            </div>
+        </footer>
+        
         <script src="scripts/app.js"></script>
     </body>
 </html>

@@ -12,46 +12,41 @@ import 'angular-translate-loader-static-files';
 import 'angular-translate-storage-local';
 import 'angular-translate-storage-cookie';
 import 'angular-translate-handler-log';
+import './app_tpl';
+//import './filters';
+import './controllers';
+//import './services';
+//import './directives';
 
 import {Constants} from './settings/constants';
 import {Run} from './settings/run';
 import {Config} from './settings/config';
 
-// import './app_tpl';
-// import './filters';
-// import './controllers';
-// import './services';
-// import './directives';
-
 // if (constants.mocks === true) {
 //     require ('./mocks');
 // }
 
-
-// // create and bootstrap application
-// const requires = [
-//     'app.templates',
-//     'app.filters',
-//     'app.controllers',
-//     'app.services',
-//     'app.directives'
-// ];
-
-// //activate mocks
-// if (constants.mocks === true) {
-//     requires.push('app.mocks');
-// }
-
 namespace App {
-
+    // create and bootstrap application
     const requires:string[] = [
         'ui.router',
         'oc.lazyLoad',
         'pascalprecht.translate',
          'ngSanitize',
         'ngCookies',
-        'tmh.dynamicLocale'
+        'tmh.dynamicLocale',
+        'app.templates',
+        //'app.filters',
+        'app.controllers',
+        //'app.services',
+        //'app.directives'
     ];
+
+    // //activate mocks
+    // if (constants.mocks === true) {
+    //     requires.push('app.mocks');
+    // }
+
     // mount on window for testing
     window.app = angular.module('app', requires);
 
