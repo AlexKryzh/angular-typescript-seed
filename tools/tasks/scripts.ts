@@ -29,17 +29,13 @@ namespace Bundler{
                 packageCache: {},
                 fullPaths: !$.prod
             }).add($.config.scripts.dev + this.path);
-            this.transforms = [
-                //{ 'name':babelify, 'options': {}},
-                // { 'name':'brfs', 'options': {}},
-                // { 'name':'bulkify', 'options': {}}
-            ];
-            this.transforms.forEach(function(transform) {
-                that.bundler.transform(transform.name, transform.options);
-            });
         }
         build(){
-            const stream = this.bundler.plugin(tsify, {}).bundle();
+            const stream = this.bundler
+                    .plugin(tsify, {})
+                    .transform('brfs', {})
+                    .transform('bulkify', {})
+                    .bundle();
             const sourceMapLocation = $.prod ? './' : '';
 
             return stream.on('error', function (err:any) {
