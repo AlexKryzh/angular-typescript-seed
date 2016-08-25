@@ -1,24 +1,10 @@
 /// <reference path="../../../typings/index.d.ts"/>
 /// <reference path="../../index.d.ts"/>
 
-const bulk = require('bulk-require');
-const filters = bulk(__dirname, ['./**/!(*index|*.spec).js']);
+import { TrimFilter } from './trim'; 
+import { FieldsFilter } from './fields'; 
+
 export let app_filters = angular.module('app.filters', []);
 
-function declare(filterMap: any) {
-  Object.keys(filterMap).forEach((key) => {
-    let item = filterMap[key];
-
-    if (!item) {
-      return;
-    }
-
-    if (item.fn && typeof item.fn === 'function') {
-      app_filters.filter(item.name, item.fn);
-    } else {
-      declare(item);
-    }
-  });
-}
-
-declare(filters);
+app_filters.filter('trim', TrimFilter);
+app_filters.filter('fields', FieldsFilter);

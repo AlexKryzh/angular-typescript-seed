@@ -13,7 +13,7 @@ import 'angular-translate-storage-local';
 import 'angular-translate-storage-cookie';
 import 'angular-translate-handler-log';
 import './app_tpl';
-//import './filters';
+import './filters';
 import './controllers';
 //import './services';
 //import './directives';
@@ -36,7 +36,7 @@ namespace App {
         'ngCookies',
         'tmh.dynamicLocale',
         'app.templates',
-        //'app.filters',
+        'app.filters',
         'app.controllers',
         //'app.services',
         //'app.directives'
