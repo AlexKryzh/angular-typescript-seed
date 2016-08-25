@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('translations', 'Move translations files', () =>{
     return $.gulp.src($.config.translation.src)

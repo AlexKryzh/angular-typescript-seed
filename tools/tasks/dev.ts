@@ -1,5 +1,5 @@
 import * as sequence from 'run-sequence';
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> {
     cb = cb || function() {};

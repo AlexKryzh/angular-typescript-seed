@@ -13,15 +13,17 @@ const plugins = gulpLoadPlugins({camelize: true});
 const CacheBuster = require('gulp-cachebust');
 const del = require('del');
 
-global.gulp = gulpHelp(gulp, {description: '', hideEmpty: true});
-global.plugin = plugins;
-global.prod = false;
-global.mocks = util.env.mocks;
-global.config = configuration.config;
-global.bs = browserSync.create();
-global.cachebust = new CacheBuster();
-global.del = del;
-global.timestamp = Math.round(Date.now()/1000);
+global.tools = {};
+
+global.tools.gulp = gulpHelp(gulp, {description: '', hideEmpty: true});
+global.tools.plugin = plugins;
+global.tools.prod = false;
+global.tools.mocks = util.env.mocks;
+global.tools.config = configuration.config;
+global.tools.bs = browserSync.create();
+global.tools.cachebust = new CacheBuster();
+global.tools.del = del;
+global.tools.timestamp = Math.round(Date.now()/1000);
 
 //Register tasks from tasks folder
 const tasks:string[] = readdirSync('./tools/tasks/').filter((task) => {

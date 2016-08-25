@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('constants', 'Create constants module',() =>{
     if($.prod){

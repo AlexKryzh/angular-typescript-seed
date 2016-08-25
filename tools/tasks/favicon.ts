@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('favicon', 'Move favicon', () =>{
     return $.gulp.src($.config.favicons.dev)

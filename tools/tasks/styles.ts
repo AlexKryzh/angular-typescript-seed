@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 const createSourcemap = !$.prod || $.config.styles.prodSourcemap;
 

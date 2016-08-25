@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('watch', 'Watch changes, relaunch tasks and reload browser', ['server'], () =>{
     //watch files change and run task

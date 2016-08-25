@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 import { readFileSync } from 'fs';
 
 $.gulp.task('app', 'Proccess & move default app html page',() =>{

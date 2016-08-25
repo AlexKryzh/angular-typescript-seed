@@ -1,11 +1,10 @@
-function FieldsFilter() {
-
-    return function(input, search, properties = []) {
+export function FieldsFilter() {
+    return function (input: any[], search: string, properties: any[] = []): any[] {
         search = search.toString().toLowerCase();
         if(search.length === 0 || input === undefined){
             return input;
         }
-        var output =[];
+        var output: any[] =[];
         if(properties.length > 0){
             for(let i=0; i < input.length; i++){
                 var found = false;
@@ -24,10 +23,5 @@ function FieldsFilter() {
             output = input;
         }
         return output;
-    };
+    }
 }
-
-export default {
-    name: 'fields',
-    fn: FieldsFilter
-};

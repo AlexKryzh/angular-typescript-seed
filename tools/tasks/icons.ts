@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('icons', 'Create font with custom icons', () =>{
     $.gulp.src($.config.icons.src)

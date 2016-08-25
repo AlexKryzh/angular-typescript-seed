@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('clean', 'Delete all generated files', () =>{
     return $.del([
