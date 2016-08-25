@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('templates', 'Process template files', ['templates:modules'],() =>{
     return $.gulp.src($.config.templates.src)

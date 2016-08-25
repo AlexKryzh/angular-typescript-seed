@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('favicons', 'Create favicons for different platforms', (cb:any) => {
     $.plugin.realFavicon.generateFavicon({

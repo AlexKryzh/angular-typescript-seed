@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('images', 'Process and move images', () => {
     return $.gulp.src($.config.images.src)

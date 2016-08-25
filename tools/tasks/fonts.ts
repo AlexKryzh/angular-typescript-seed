@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('fonts', 'Move fonts', () =>{
     return $.gulp.src($.config.fonts.src)

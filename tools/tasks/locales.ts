@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('locales', 'Move location format files', () =>{
     return $.gulp.src($.config.locale.src)

@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 import * as url from 'url';
 
 $.gulp.task('server', 'Launch server for development', () =>{

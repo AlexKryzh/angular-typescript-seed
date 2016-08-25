@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 
 $.gulp.task('mocks', 'Process and move mocks', ['mocks:images'], () =>{
     if($.mocks !== true){ return; }

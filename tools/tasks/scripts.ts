@@ -1,4 +1,4 @@
-var $ = global;
+var $ = global.tools;
 const browserify = require('browserify');
 const tsify = require('tsify');
 const ngAnnotate = require('browserify-ngannotate');
@@ -33,9 +33,9 @@ namespace Bundler{
         build(){
             const stream = this.bundler
                     .plugin(tsify, {})
-                    .transform('brfs', {})
-                    .transform('bulkify', {})
+                    // .transform('brfs', {})
                     .bundle();
+
             const sourceMapLocation = $.prod ? './' : '';
 
             return stream.on('error', function (err:any) {
