@@ -13,5 +13,12 @@ gulp dev
 gulp prod
 
 
-typings install example:
+Typings Example
+------------------------------------------
 typings install dt~browser-sync --global --save
+
+
+ToDo List
+------------------------------------------
+
+*   Components organization:  scripts: app, home, items, styleguide
