@@ -15,8 +15,8 @@ import 'angular-translate-handler-log';
 import './app_tpl';
 import './filters';
 import './controllers';
-//import './services';
-//import './directives';
+import './services';
+import './directives';
 
 import {Constants} from './settings/constants';
 import {Run} from './settings/run';
@@ -38,8 +38,8 @@ namespace App {
         'app.templates',
         'app.filters',
         'app.controllers',
-        //'app.services',
-        //'app.directives'
+        'app.services',
+        'app.directives'
     ];
 
     // //activate mocks

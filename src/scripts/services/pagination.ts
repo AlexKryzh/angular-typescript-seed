@@ -23,11 +23,10 @@ export class PaginationService {
     }
 
     getPages(ShowPages: number, CurrentPage: number, LastPage: number){
-        var pages = [], StartPage, FinalPage, CurrentStep;
-        var PagesStep = (ShowPages - 1) / 2;
-
-        StartPage = CurrentPage - PagesStep;
-        FinalPage = CurrentPage + PagesStep;
+        let pages: number[] = [];
+        let PagesStep: number = (ShowPages - 1) / 2;
+        let StartPage: number = CurrentPage - PagesStep;
+        let FinalPage: number = CurrentPage + PagesStep;
 
         if(StartPage < 1){
             StartPage = 1;

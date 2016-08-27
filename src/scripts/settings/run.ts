@@ -2,12 +2,12 @@ export class Run {
     static $inject = ['$rootScope', '$translate', '$log'];
     constructor($rootScope: any, $translate: ng.translate.ITranslateService, $log: ng.ILogService){
         //Switch body scroll
-        $rootScope.$on('$switchPageScroll', (event, args) => {
+        $rootScope.$on('$switchPageScroll', (event: any, args: any) => {
             $rootScope.hidePageScroll  = args.status;
         });
 
         //Switch general loading
-        $rootScope.$on('$switchLoading', (event, args) => {
+        $rootScope.$on('$switchLoading', (event: any, args: any) => {
             $rootScope.hideLoading  = args.status;
             $rootScope.hidePageScroll  = !args.status;
         });
@@ -18,7 +18,7 @@ export class Run {
         };
 
         //change page based on state
-        $rootScope.$on('$stateChangeSuccess', (event, toState) => {
+        $rootScope.$on('$stateChangeSuccess', (event: any, toState: any) => {
 
             //page config
             $rootScope.page = {
