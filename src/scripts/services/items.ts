@@ -1,7 +1,7 @@
 export class ItemsService {
     static $inject = ['$http', 'AppSettings', '$log'];
-    constructor(public $http: any, public AppSettings: any, public $log: any) {}
-    get(itemsApi: any){
+    constructor(public $http: ng.IHttpService, public AppSettings: any, public $log: any) {}
+    get(itemsApi: string){
         var promise = this.$http({
             method: 'GET',
             url: this.AppSettings.apiUrl + itemsApi
