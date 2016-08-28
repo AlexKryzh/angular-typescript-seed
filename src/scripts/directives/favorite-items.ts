@@ -1,15 +1,15 @@
-function FavoriteItemsDrct($log) {
-    return {
-        restrict: 'E',
-        scope: { items: '=', switchFavoritesList: '=', switchFavorite: '=', options: '=' },
-        templateUrl: 'directives/favorite-items.html',
-        link: function ($scope) {
-            
-        }
-    };
-}
+export class FavoriteItemsDrct implements ng.IDirective{
+    restrict= 'E';
+    scope= { items: '=', switchFavoritesList: '=', switchFavorite: '=', options: '=' };
+    templateUrl= 'directives/favorite-items.html';
 
-export default {
-  name: 'favoriteItems',
-  fn: FavoriteItemsDrct
-};
+    constructor(private $log: any){}
+
+    link($scope) {}
+
+    static factory(): ng.IDirectiveFactory {
+        const directive = ($log: any) => new FavoriteItemsDrct($log);
+        directive.$inject = ['$log'];
+        return directive;
+    }
+}

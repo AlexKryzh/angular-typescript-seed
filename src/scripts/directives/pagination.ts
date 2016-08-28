@@ -1,15 +1,15 @@
-function PaginationDrct($log) {
-    return {
-        restrict: 'E',
-        scope: { currentPage: '=', pages: '=', lastPage: '=', setPage: '=' },
-        templateUrl: 'directives/pagination.html',
-        link: function ($scope) {
+export class PaginationDrct implements ng.IDirective{
+    restrict= 'E';
+    scope= { currentPage: '=', pages: '=', lastPage: '=', setPage: '=' };
+    templateUrl= 'directives/pagination.html';
 
-        }
-    };
+    constructor(private $log: any){}
+
+    link($scope) {}
+
+    static factory(): ng.IDirectiveFactory {
+        const directive = ($log: any) => new PaginationDrct($log);
+        directive.$inject = ['$log'];
+        return directive;
+    }
 }
-
-export default {
-  name: 'pagination',
-  fn: PaginationDrct
-};
