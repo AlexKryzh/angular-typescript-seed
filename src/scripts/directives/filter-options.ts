@@ -1,15 +1,15 @@
-function FilterOptionsDrct($log) {
-    return {
-        restrict: 'E',
-        scope: { reloadItems: '=', switchFavoritesList: '=', options: '=' },
-        templateUrl: 'directives/filter-options.html',
-        link: function ($scope) {
-            
-        }
-    };
-}
+export class FilterOptionsDrct implements ng.IDirective{
+    restrict= 'E';
+    scope= { reloadItems: '=', switchFavoritesList: '=', options: '=' };
+    templateUrl= 'directives/filter-options.html';
 
-export default {
-  name: 'filterOptions',
-  fn: FilterOptionsDrct
-};
+    constructor(private $log: any){}
+
+    link($scope) {}
+
+    static factory(): ng.IDirectiveFactory {
+        const directive = ($log: any) => new FilterOptionsDrct($log);
+        directive.$inject = ['$log'];
+        return directive;
+    }
+}

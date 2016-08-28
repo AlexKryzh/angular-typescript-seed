@@ -1,10 +1,8 @@
-function AppLoading() {
-    return {
-        templateUrl: 'directives/app-loading.html'
-    };
-}
+export class AppLoadingDrct implements ng.IDirective{
+    templateUrl= 'directives/app-loading.html';
 
-export default {
-  name: 'appLoading',
-  fn: AppLoading
-};
+    static factory(): ng.IDirectiveFactory {
+        const directive = () => new AppLoadingDrct();
+        return directive;
+    }
+}
