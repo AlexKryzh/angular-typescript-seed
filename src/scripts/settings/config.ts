@@ -46,7 +46,6 @@ export class Config {
         .state('styleguide', {
             url: '/styleguide',
             title: 'page.styleguide.title',
-            controller: 'styleguideCtrl as styleguide',
             templateUrl: 'styleguide.html',
             resolve: {
                 list_deps: ['$ocLazyLoad', function($ocLazyLoad: oc.ILazyLoad){

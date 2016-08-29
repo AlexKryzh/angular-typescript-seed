@@ -17,14 +17,11 @@ import './filters';
 import './controllers';
 import './services';
 import './directives';
+import './mocks';
 
 import {Constants} from './settings/constants';
 import {Run} from './settings/run';
 import {Config} from './settings/config';
-
-// if (constants.mocks === true) {
-//     require ('./mocks');
-// }
 
 namespace App {
     // create and bootstrap application
@@ -42,15 +39,16 @@ namespace App {
         'app.directives'
     ];
 
-    // //activate mocks
-    // if (constants.mocks === true) {
-    //     requires.push('app.mocks');
-    // }
+    let AppSettings = new Constants();
+
+    //activate mocks
+    if (AppSettings.mocks === true) {
+        requires.push('app.mocks');
+    }
 
     // mount on window for testing
     window.app = angular.module('app', requires);
 
-    let AppSettings = new Constants();
     angular.module('app').constant('AppSettings', AppSettings);
     angular.module('app').config(Config);
     angular.module('app').run(Run);

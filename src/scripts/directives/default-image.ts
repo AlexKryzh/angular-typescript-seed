@@ -3,7 +3,7 @@ export class DefaultImageDrct implements ng.IDirective{
 
     constructor(private $log: any){}
 
-    link(scope, element, attrs){
+    link(scope: any, element: any, attrs: any){
         element.bind('error', function() {
             if (attrs.src !== attrs.defaultImage) {
                 attrs.$set('src', attrs.defaultImage);

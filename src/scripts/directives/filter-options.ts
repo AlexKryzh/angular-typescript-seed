@@ -5,7 +5,7 @@ export class FilterOptionsDrct implements ng.IDirective{
 
     constructor(private $log: any){}
 
-    link($scope) {}
+    link($scope: any) {}
 
     static factory(): ng.IDirectiveFactory {
         const directive = ($log: any) => new FilterOptionsDrct($log);
