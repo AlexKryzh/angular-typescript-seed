@@ -14,6 +14,7 @@ import 'angular-translate-storage-cookie';
 import 'angular-translate-handler-log';
 import './app_tpl';
 import './filters';
+import './components';
 import './controllers';
 import './services';
 import './directives';
@@ -34,6 +35,7 @@ namespace App {
         'tmh.dynamicLocale',
         'app.templates',
         'app.filters',
+        'app.components',
         'app.controllers',
         'app.services',
         'app.directives'
