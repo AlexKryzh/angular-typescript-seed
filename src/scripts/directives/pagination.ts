@@ -5,7 +5,7 @@ export class PaginationDrct implements ng.IDirective{
 
     constructor(private $log: any){}
 
-    link($scope) {}
+    link($scope: any) {}
 
     static factory(): ng.IDirectiveFactory {
         const directive = ($log: any) => new PaginationDrct($log);

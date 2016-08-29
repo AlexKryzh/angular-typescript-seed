@@ -3,29 +3,29 @@ export class ItemsDrct implements ng.IDirective{
     scope= { itemsApi: '=', step: '=', currentPage: '=', showPages: '=', options: '=', emitEvent: '='  };
     templateUrl= 'directives/items.html';
 
-    constructor(ItemsService: any, PaginationService: any, $state: any, $anchorScroll: any, $filter: any, $log: any){}
+    constructor(private ItemsService: any, private PaginationService: any, private $state: any, private $anchorScroll: any, private $filter: any, private $log: any){}
 
-    link($scope) {
+    link($scope: any) {
         var getPagination = function(){
-            var items = $filter('fields')($scope.items, $scope.options.filter, ['title', 'description', 'email', 'price']);
-            var pagination = PaginationService.get(items, $scope.currentPage, $scope.step, $scope.showPages);
+            var items = this.$filter('fields')($scope.items, $scope.options.filter, ['title', 'description', 'email', 'price']);
+            var pagination = this.PaginationService.get(items, $scope.currentPage, $scope.step, $scope.showPages);
             $scope.pages = pagination.pages;
             $scope.lastPage = pagination.last_page;
         };
 
-        $scope.setPage = function(id){
+        $scope.setPage = function(id: number){
             $scope.currentPage = id > 0 ? id : 1;
             getPagination();
-            $anchorScroll();
+            this.$anchorScroll();
         };
 
         $scope.reloadItems = function(){
             var id= 1;
-            $state.transitionTo($state.current, {page: id}, {notify: false});
+            this.$state.transitionTo(this.$state.current, {page: id}, {notify: false});
             $scope.setPage(id);
         };
 
-        $scope.switchFavorite = function(item){
+        $scope.switchFavorite = function(item: any){
             item.favorite = item.favorite? false : true;
         };
 
@@ -34,7 +34,7 @@ export class ItemsDrct implements ng.IDirective{
             $scope.emitEvent('$switchPageScroll', { status: $scope.ShowFavorites? true : false });
         };
 
-        ItemsService.get($scope.itemsApi).then(function(data){
+        this.ItemsService.get($scope.itemsApi).then(function(data: any){
             var items = data.items;
             if(items.length === 0){
                 $scope.options.alert = {
@@ -49,7 +49,7 @@ export class ItemsDrct implements ng.IDirective{
                 $scope.items = items;
                 getPagination();
             }
-        }, function(error){
+        }, function(error: any){
             //we can use error for details
             $scope.options.alert = {
                 type: 'danger',
