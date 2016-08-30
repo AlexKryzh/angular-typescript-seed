@@ -1,6 +1,7 @@
 var $ = global.tools;
 const browserify = require('browserify');
 const tsify = require('tsify');
+const watchify = require('watchify');
 const ngAnnotate = require('browserify-ngannotate');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
@@ -29,6 +30,13 @@ namespace Bundler{
                 packageCache: {},
                 fullPaths: !$.prod
             }).add($.config.scripts.dev + this.path);
+            if (!$.prod) {
+                this.bundler = watchify(this.bundler);
+                this.bundler.on('update', () => {
+                    this.build();
+                    $.plugin.util.log($.plugin.util.colors.green(`Rebundle ${this.path}`));
+                });
+            }
         }
         build(){
             const stream = this.bundler
@@ -54,7 +62,10 @@ namespace Bundler{
                 .pipe($.plugin.rename(function (path:any) {
                     path.extname = '.js'
                 }))
-                .pipe($.gulp.dest($.config.scripts.dest));
+                .pipe($.gulp.dest($.config.scripts.dest)).on('end', 
+                    function() {
+                        $.bs.reload;
+                    });
         }
     }
 
