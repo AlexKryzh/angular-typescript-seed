@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/index.d.ts"/>
-/// <reference path="../../index.d.ts"/>
+/// <reference path="../../../typings.d.ts"/>
 var items: NodeRequire = require('../../resources/mocks/items.json');
 
 export class ItemsMocks {

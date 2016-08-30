@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/index.d.ts"/>
-/// <reference path="../../index.d.ts"/>
+/// <reference path="../../../typings.d.ts"/>
 
 import { TrimFilter } from './trim'; 
 import { FieldsFilter } from './fields'; 

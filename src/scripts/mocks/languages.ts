@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/index.d.ts"/>
-/// <reference path="../../index.d.ts"/>
+/// <reference path="../../../typings.d.ts"/>
 var en_us: NodeRequire = require('../../resources/translation/en_us.json');
 var es_es: NodeRequire  = require('../../resources/translation/es_es.json');
 

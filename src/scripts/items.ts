@@ -1,5 +1,5 @@
 /// <reference path="../../typings/index.d.ts"/>
-/// <reference path="../index.d.ts"/>
+/// <reference path="../../typings.d.ts"/>
 
 require ('../modules/items/items_css.js');
 require ('../modules/items/items_tpl.js');
