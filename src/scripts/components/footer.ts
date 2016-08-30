@@ -1,18 +1,14 @@
-class FooterDateController {
-        date: any;
-        static $inject = ['$scope'];
-        constructor($scope: any) {
-            this.date = new Date();
-        }
- }
+/// <reference path="../../../typings/index.d.ts"/>
+/// <reference path="../../../typings.d.ts"/>
 
-export class FooterDateCmp {
-    public controller: any;
-    public template: any;
-    //public templateUrl: string;
+export class FooterDateComponent implements ng.IComponentOptions {
+    controller: Function = FooterDateComponentController;
+    template: string = `{{$ctrl.date | date}}, SiteName`;
+}
+
+class FooterDateComponentController {
+    date: any
     constructor() {
-        this.controller = FooterDateController;
-        this.template = '$ctrl.date , SiteName';
-        //this.templateUrl = 'some-component.html';
+        this.date = new Date();
     }
 }
