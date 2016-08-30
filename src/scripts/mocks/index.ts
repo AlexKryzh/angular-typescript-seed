@@ -1,5 +1,6 @@
 /// <reference path="../../../typings/index.d.ts"/>
-/// <reference path="../../index.d.ts"/>
+/// <reference path="../../../typings.d.ts"/>
+
 import 'angular-mocks';
 import {Constants} from '../settings/constants';
 let AppSettings = new Constants();

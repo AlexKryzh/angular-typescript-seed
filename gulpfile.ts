@@ -1,5 +1,5 @@
-/// <reference path="tools/typings/index.d.ts"/>
-/// <reference path="tools/index.d.ts"/>
+/// <reference path="./typings/index.d.ts"/>
+/// <reference path="./typings.d.ts"/>
 
 import { readdirSync } from 'fs';
 import * as gulp from 'gulp';
