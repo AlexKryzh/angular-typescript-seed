@@ -1,19 +1,20 @@
 var $ = global.tools;
 
 $.gulp.task('constants', 'Create constants module',() =>{
-    if($.prod){
-        var environment = 'production';
-    }else{
-        var environment = 'development';
+
+    let environment = $.prod ? 'production' : 'development';
+    let constants = $.config.constants.properties;
+
+    for (let constant in $.config.environment[environment]){
+        constants[constant] = $.config.environment[environment][constant];
     }
 
-    var constants = $.config.constants.properties;
     if($.prod){
         constants.cache_buster = $.timestamp;
     }
 
-    for (var constant in $.config.environment[environment]){
-        constants[constant] = $.config.environment[environment][constant];
+    if($.mocks){
+        constants.mocks = true;
     }
 
     return $.plugin.ngConstant({
@@ -22,8 +23,6 @@ $.gulp.task('constants', 'Create constants module',() =>{
         stream: true,
         wrap: false
     })
-    .pipe($.plugin.if($.mocks, $.plugin.replace('mocks: false', 'mocks: true')))
-    .pipe($.plugin.if(!$.mocks, $.plugin.replace('mocks: true', 'mocks: false')))
     .pipe($.plugin.rename($.config.constants.name))
     .pipe($.gulp.dest($.config.constants.dest));
 });
