@@ -6,11 +6,10 @@ export class LanguagesDrct implements ng.IDirective{
     constructor(private LocalizationService: any){}
 
     link($scope: any){
-        let that = this;
         $scope.languages = this.LocalizationService.get();
         $scope.current = this.LocalizationService.getCurrent();
-        $scope.changeLanguage = function (locale: any) {
-            $scope.current = that.LocalizationService.set(locale);
+        $scope.changeLanguage = (locale: any) => {
+            $scope.current = this.LocalizationService.set(locale);
             $scope.switchNav(false);
         };
     }
