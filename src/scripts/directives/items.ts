@@ -6,30 +6,30 @@ export class ItemsDrct implements ng.IDirective{
     constructor(private ItemsService: any, private PaginationService: any, private $state: any, private $anchorScroll: any, private $filter: any, private $log: any){}
 
     link($scope: any) {
-        var getPagination = function(){
+        var getPagination = () => {
             var items = this.$filter('fields')($scope.items, $scope.options.filter, ['title', 'description', 'email', 'price']);
             var pagination = this.PaginationService.get(items, $scope.currentPage, $scope.step, $scope.showPages);
             $scope.pages = pagination.pages;
             $scope.lastPage = pagination.last_page;
         };
 
-        $scope.setPage = function(id: number){
+        $scope.setPage = (id: number) => {
             $scope.currentPage = id > 0 ? id : 1;
             getPagination();
             this.$anchorScroll();
         };
 
-        $scope.reloadItems = function(){
+        $scope.reloadItems = () =>{
             var id= 1;
             this.$state.transitionTo(this.$state.current, {page: id}, {notify: false});
             $scope.setPage(id);
         };
 
-        $scope.switchFavorite = function(item: any){
+        $scope.switchFavorite = (item: any) => {
             item.favorite = item.favorite? false : true;
         };
 
-        $scope.switchFavoritesList = function(){
+        $scope.switchFavoritesList = () => {
             $scope.ShowFavorites = !$scope.ShowFavorites;
             $scope.emitEvent('$switchPageScroll', { status: $scope.ShowFavorites? true : false });
         };

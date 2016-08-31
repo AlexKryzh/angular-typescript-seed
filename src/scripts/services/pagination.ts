@@ -39,7 +39,9 @@ export class PaginationService {
         }
 
         for (let i = StartPage; i <= FinalPage; i++) {
-            pages.push(i);
+            if(i > 0){
+                pages.push(i);
+            }
         }
         return pages;
     }
