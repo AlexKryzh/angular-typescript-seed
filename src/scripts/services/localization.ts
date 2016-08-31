@@ -8,7 +8,7 @@ export class LocalizationService {
             $log.debug('Localizations are not defined.');
         }
 
-        let currentLocalization = $translate.proposedLanguage(); // because of async loading
+        this.currentLocalization = $translate.proposedLanguage(); // because of async loading
 
         // EVENTS
         $rootScope.$on('$translateChangeSuccess', function (event: any, data: any) {
