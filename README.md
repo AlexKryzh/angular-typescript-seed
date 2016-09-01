@@ -9,7 +9,10 @@ gulp
 3. Create development distribution:
 gulp dev
 
-3. Create production distribution:
+4. Create development distribution with mocks options (this will mock items API):
+gulp dev --mocks
+
+5. Create production distribution:
 gulp prod
 
 
