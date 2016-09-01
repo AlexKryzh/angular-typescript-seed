@@ -123,6 +123,10 @@ export const config = {
         prodSourcemap: false,
         autoprefixer: ['last 5 version', '> 0.1%', 'ie 9']
     },
+    test: {
+        karma: 'test/karma.conf.js',
+        protractor: 'test/protractor.conf.js'
+    },
     locale: {
         src: 'src/resources/locale/*.js',
         dest: 'dist/resources/locale'
