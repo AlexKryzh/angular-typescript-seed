@@ -33,6 +33,7 @@
     "angular-translate-storage-local": "^2.11.1",
     "angular-ui-router": "^0.3.1",
     "bootstrap-sass": "^3.3.7",
+    "core-js": "^2.4.1",
     "oclazyload": "^1.0.9"
   },
   "devDependencies": {
@@ -74,6 +75,9 @@
     "gulp-uncss": "^1.0.6",
     "gulp-util": "^3.0.7",
     "jasmine-core": "^2.5.0",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
     "lodash": "^4.15.0",
     "protractor": "^4.0.4",
     "run-sequence": "^1.2.2",
