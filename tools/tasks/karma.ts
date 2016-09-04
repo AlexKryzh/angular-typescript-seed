@@ -1,10 +1,18 @@
 /// <reference path="../../typings/index.d.ts"/>
 /// <reference path="../../typings.d.ts"/>
 
-import * as karma from 'karma';
-import { join } from 'path';
-
 var $ = global.tools;
+var Server = require('karma').Server;
+
+/**
+ * Run test once and exit
+ */
+$.gulp.task('karma', 'Launch Unit Test', function(cb: any) {
+  new Server({
+    configFile: __dirname + '/../../' + $.config.test.karma,
+    singleRun: true
+  }, cb).start();
+});
 
 // const startKarma = (done: any, config: any = {}) => {
 //   return new (<any>karma).Server(Object.assign({
@@ -13,7 +21,7 @@ var $ = global.tools;
 //   }, config)).start(done);
 // };
 
-$.gulp.task('kar', 'Launch Unit Test', function(cb: any) {
+//$.gulp.task('karma', 'Launch Unit Test', function(cb: any) {
 
   //   return startKarma(cb, {
   //   preprocessors: {
@@ -42,4 +50,4 @@ $.gulp.task('kar', 'Launch Unit Test', function(cb: any) {
     //before we can open it in browser
     //open:TestCoverage
 
-});
+//});

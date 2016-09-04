@@ -4,7 +4,6 @@
 # Dependency directories
 /node_modules/
 /typings/
-/tools/typings/
 
 # Dist files
 /dist/
